@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>星座検出ツール</title>
+    <link rel="stylesheet" href="../static/stylesheet.css">
+  </head>
+  <body>
+    <header>
+      <p class="header_title">映っている星座を判別します</p>
+    </header>
+    <h1>星空画像を入力してください</h1>
+    <form enctype="multipart/form-data">
+      <input type="file" name="img" accept=".png, .jpg, jpeg, .gif"  required>
+      <button type="submit" formmethod="post">判別開始</button>
+      {% if img_path %}
+      {% if answer %}
+      <div class="answer">{{answer}}</div>
+      <h3>画像クリックで元の画像と切り替わります</h3>
+      <div class ="image_a">
+        <img id="mypic" onclick="slideshow()" src="{{ img_path }}" class="image_c">
+        <script>
+          var pics_src = new Array("{{ img_path }}","{{ img_origin }}");
+          var num = 0;
+
+          function slideshow(){
+              if (num == 1) {
+                  num = 0;
+              }
+              else {
+                  num ++;
+              }
+              document.getElementById("mypic").src=pics_src[num];
+          }
+          </script>
+      </div>
+      {% else %}
+      <h2>星座が検出できませんでした</h2>
+      <h3>※未対応の恐れがあります</h3>
+      <div class ="image_a">
+        <img src="{{ img_path }}" class="image_c">
+      </div>
+      <p>{{ img_path }}</p>
+      {% endif %}
+      {% endif %}
+    </form>
+  </body>
+</html>

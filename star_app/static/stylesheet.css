@@ -1,0 +1,44 @@
+header{
+  background-color:darkblue;
+  font-size: x-large;
+  height: 60px;
+  margin: -8px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.header_title{
+  color: yellow;
+  font-size: large;
+  margin: 15px 25px;
+  position: absolute;
+  left: 0;
+}
+
+h1{
+  font-size: x-large;
+  min-height: 40px;
+}
+h2{
+  text-align: center;
+  font-size: xx-large;
+}
+
+h3{
+  text-align: center;
+  font-size: x-large;
+}
+.image_a{
+  text-align: center;
+}
+
+.image_c{
+  width: 80%;
+}
+
+.answer {
+  color: black;
+  margin: 20px 0px 10px 0px;
+  text-align: center;
+  font-size: 80px;
+}
